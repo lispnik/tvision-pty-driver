@@ -1,0 +1,21 @@
+name: ci
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  load:
+    name: compile / load
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install SBCL
+        run: sudo apt-get update && sudo apt-get install -y sbcl
+      - name: Load the system (compile check)
+        run: |
+          sbcl --non-interactive \
+            --eval '(require :asdf)' \
+            --eval '(asdf:load-asd (truename "tvision-pty-driver.asd"))' \
+            --eval '(handler-bind ((warning (function muffle-warning))) (asdf:load-system :tvision-pty-driver))' \
+            --eval '(format t "~&loaded ~a exported symbols~%" (let ((n 0)) (do-external-symbols (s :tvision-pty-driver n) (incf n))))'
