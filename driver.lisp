@@ -134,6 +134,20 @@ on success, NIL on timeout.  This is what makes the tests robust."
     (multiple-value-bind (col row) (find-text drv substr)
       (when col (click drv (+ col dx) row settle) t))))
 
+(defun drag (drv col1 row1 col2 row2 &optional (settle 0.12))
+  "Left-drag from 0-based (COL1,ROW1) to (COL2,ROW2): SGR press, held-button motion,
+release -- e.g. to select text in the editor."
+  (send drv (format nil "~c[<0;~d;~dM"  #\Escape (1+ col1) (1+ row1)) 0.04)   ; press button 0
+  (send drv (format nil "~c[<32;~d;~dM" #\Escape (1+ col2) (1+ row2)) 0.04)   ; motion, button held (+32)
+  (send drv (format nil "~c[<0;~d;~dm"  #\Escape (1+ col2) (1+ row2)) settle)) ; release
+
+(defun drag-text (drv substr &key (from 0) (to nil) (timeout 6))
+  "Wait for SUBSTR, then drag across it from column offset FROM to TO (default: end
+of SUBSTR), selecting that span.  Returns T/NIL."
+  (when (wait-for drv substr :timeout timeout)
+    (multiple-value-bind (col row) (find-text drv substr)
+      (when col (drag drv (+ col from) row (+ col (or to (length substr))) row) t))))
+
 ;;; --- menu helpers -----------------------------------------------------------
 
 (defun open-menu (drv hotkey &key (settle 0.25))

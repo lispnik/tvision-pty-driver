@@ -11,7 +11,7 @@
    ;; driver
    #:driver #:launch #:with-driver #:quit-driver
    #:drain #:wait-for #:wait-gone #:screen-text #:line #:found? #:find-text
-   #:send #:key #:type-text #:ctrl #:alt #:click #:click-text
+   #:send #:key #:type-text #:ctrl #:alt #:click #:click-text #:drag #:drag-text
    #:open-menu #:menu-item
    ;; assertions
    #:check #:report #:driver-failures))
