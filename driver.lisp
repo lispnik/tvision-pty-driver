@@ -97,7 +97,14 @@ on success, NIL on timeout.  This is what makes the tests robust."
     ("s-right" . ,(coerce '(#\Escape #\[ #\1 #\; #\2 #\C) 'string))
     ("s-left"  . ,(coerce '(#\Escape #\[ #\1 #\; #\2 #\D) 'string))
     ("s-up"    . ,(coerce '(#\Escape #\[ #\1 #\; #\2 #\A) 'string))
-    ("s-down"  . ,(coerce '(#\Escape #\[ #\1 #\; #\2 #\B) 'string)))
+    ("s-down"  . ,(coerce '(#\Escape #\[ #\1 #\; #\2 #\B) 'string))
+    ;; function keys (xterm) + a few modified variants used for menu accelerators
+    ("f1" . ,(coerce '(#\Escape #\[ #\1 #\1 #\~) 'string)) ("f2" . ,(coerce '(#\Escape #\[ #\1 #\2 #\~) 'string))
+    ("f3" . ,(coerce '(#\Escape #\[ #\1 #\3 #\~) 'string)) ("f4" . ,(coerce '(#\Escape #\[ #\1 #\4 #\~) 'string))
+    ("f5" . ,(coerce '(#\Escape #\[ #\1 #\5 #\~) 'string)) ("f6" . ,(coerce '(#\Escape #\[ #\1 #\7 #\~) 'string))
+    ("c-f5" . ,(coerce '(#\Escape #\[ #\1 #\5 #\; #\5 #\~) 'string))    ; Ctrl-F5
+    ("s-f6" . ,(coerce '(#\Escape #\[ #\1 #\7 #\; #\2 #\~) 'string))    ; Shift-F6
+    ("a-f3" . ,(coerce '(#\Escape #\[ #\1 #\; #\3 #\R) 'string)))       ; Alt-F3
   "Named keys -> the bytes a terminal sends.")
 
 (defun key (drv name &key (times 1) (settle 0.08))
