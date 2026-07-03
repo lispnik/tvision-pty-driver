@@ -6,7 +6,7 @@ send keystrokes / mouse clicks and assert on what appears. It's the Common Lisp
 answer to a Python `pyte` harness — SBCL only (uses `run-program :pty` and
 `sb-unicode`, no CFFI, no external deps).
 
-Built for the `tv2` / `tvlisp-tv2` project, but binary-agnostic.
+Built for the `tv2` / `tvlisp` project, but binary-agnostic.
 
 ## Why
 
@@ -52,4 +52,4 @@ expected text appears (or a timeout), instead of guessing fixed sleeps.
   (sb-ext:exit :code (report d)))
 ```
 
-See `tvlisp/tests/pty_smoke_tv2.lisp` for a full 15-check end-to-end suite.
+See `tvlisp/tests/pty_smoke_tv2.lisp` for a full 46-check end-to-end suite.
