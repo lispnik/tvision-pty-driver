@@ -6,7 +6,7 @@ send keystrokes / mouse clicks and assert on what appears. It's the Common Lisp
 answer to a Python `pyte` harness — SBCL only (uses `run-program :pty` and
 `sb-unicode`, no CFFI, no external deps).
 
-Built for the `tv2` / `tvlisp` project, but binary-agnostic.
+Built for the `revision` / `tvlisp` project, but binary-agnostic.
 
 ## Why
 

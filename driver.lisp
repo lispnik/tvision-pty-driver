@@ -3,7 +3,7 @@
 ;;;; Uses SBCL's RUN-PROGRAM :PTY (no CFFI).  The app sizes itself from LINES /
 ;;;; COLUMNS (it runs `stty size`, which reports 0 on the fresh pty, so it falls
 ;;;; back to the env we set).  HOME is redirected to a temp dir so a TUI that
-;;;; persists desktop state (~/.tv2-desktop) can't leak between runs.
+;;;; persists desktop state (~/.revision-desktop) can't leak between runs.
 ;;;;
 ;;;; The core idea for reliable tests: WAIT-FOR polls the screen until the
 ;;;; expected text appears (or a timeout), instead of guessing fixed sleeps.
