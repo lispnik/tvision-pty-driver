@@ -1,4 +1,4 @@
-# tvision-pty-driver
+# revision-pty-driver
 
 A small **Lisp-native** harness for testing terminal UIs: it launches a TUI
 binary in a pseudo-terminal, reconstructs the screen it paints, and lets a test
@@ -37,8 +37,8 @@ expected text appears (or a timeout), instead of guessing fixed sleeps.
 ## Usage
 
 ```lisp
-(asdf:load-system :tvision-pty-driver)
-(in-package :tvision-pty-driver)
+(asdf:load-system :revision-pty-driver)
+(in-package :revision-pty-driver)
 
 (let ((d (launch "/path/to/my-tui" :cols 100 :rows 30)))
   (unwind-protect
@@ -52,4 +52,4 @@ expected text appears (or a timeout), instead of guessing fixed sleeps.
   (sb-ext:exit :code (report d)))
 ```
 
-See `revl/tests/pty_smoke_tv2.lisp` for a full 46-check end-to-end suite.
+See `revl/tests/pty_smoke.lisp` for a full 46-check end-to-end suite.

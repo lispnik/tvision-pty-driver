@@ -16,6 +16,6 @@ jobs:
         run: |
           sbcl --non-interactive \
             --eval '(require :asdf)' \
-            --eval '(asdf:load-asd (truename "tvision-pty-driver.asd"))' \
-            --eval '(handler-bind ((warning (function muffle-warning))) (asdf:load-system :tvision-pty-driver))' \
-            --eval '(format t "~&loaded ~a exported symbols~%" (let ((n 0)) (do-external-symbols (s :tvision-pty-driver n) (incf n))))'
+            --eval '(asdf:load-asd (truename "revision-pty-driver.asd"))' \
+            --eval '(handler-bind ((warning (function muffle-warning))) (asdf:load-system :revision-pty-driver))' \
+            --eval '(format t "~&loaded ~a exported symbols~%" (let ((n 0)) (do-external-symbols (s :revision-pty-driver n) (incf n))))'

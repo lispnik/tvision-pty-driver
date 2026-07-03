@@ -6,7 +6,7 @@
 ;;;; (SGR) and private modes (?1049h, ?25l, mouse) are parsed and ignored.  Fed
 ;;;; one character at a time, so it works on a streaming pty read.
 
-(in-package #:tvision-pty-driver)
+(in-package #:revision-pty-driver)
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (ignore-errors (require :sb-unicode)))

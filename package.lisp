@@ -1,8 +1,8 @@
-;;;; package.lisp --- tvision-pty-driver: drive a TUI in a pty and assert on the
+;;;; package.lisp --- revision-pty-driver: drive a TUI in a pty and assert on the
 ;;;; reconstructed screen (a Lisp-native alternative to a Python pyte harness).
 
-(defpackage #:tvision-pty-driver
-  (:nicknames #:tpd)
+(defpackage #:revision-pty-driver
+  (:nicknames #:rpd)
   (:use #:common-lisp)
   (:export
    ;; terminal emulator

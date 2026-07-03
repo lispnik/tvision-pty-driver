@@ -8,7 +8,7 @@
 ;;;; The core idea for reliable tests: WAIT-FOR polls the screen until the
 ;;;; expected text appears (or a timeout), instead of guessing fixed sleeps.
 
-(in-package #:tvision-pty-driver)
+(in-package #:revision-pty-driver)
 
 (defclass driver ()
   ((process  :initarg :process  :accessor driver-process)
@@ -36,7 +36,7 @@ temp dir; EXTRA-ENV is a list of \"VAR=val\" strings added to the environment."
   (and (>= (length entry) (length prefix)) (string= entry prefix :end1 (length prefix))))
 
 (defun %temp-home ()
-  (let ((dir (format nil "/tmp/tpd-home-~36r/" (get-internal-real-time))))
+  (let ((dir (format nil "/tmp/rpd-home-~36r/" (get-internal-real-time))))
     (ensure-directories-exist dir) dir))
 
 ;;; --- reading (feed the terminal) --------------------------------------------
